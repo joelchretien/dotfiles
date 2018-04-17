@@ -27,3 +27,8 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
+[user]
+	email = joelchretien@gmail.com
+	name = Joel Chretien
+[diff]
+tool = vimdiff
