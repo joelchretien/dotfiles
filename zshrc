@@ -47,8 +47,18 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-#export PATH="$HOME/.rbenv/bin:$PATH"
-#eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 #
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
+
+export ZSH=/home/joel/.oh-my-zsh
+
+ZSH_THEME="avit"
+
+plugins=(
+git
+)
+
+source $ZSH/oh-my-zsh.sh
