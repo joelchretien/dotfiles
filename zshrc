@@ -62,3 +62,6 @@ git
 )
 
 source $ZSH/oh-my-zsh.sh
+
+fpath=(~/.zsh/completion $fpath)
+autoload -Uz compinit && compinit -i
