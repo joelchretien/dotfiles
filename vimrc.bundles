@@ -42,6 +42,7 @@ Plug 'christoomey/vim-tmux-runner'
 Plug 'thoughtbot/vim-rspec'
 Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tcomment_vim'
+Plug 'christoomey/vim-conflicted'
 
 if g:has_async
   Plug 'w0rp/ale'
