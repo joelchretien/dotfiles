@@ -166,7 +166,8 @@ if filereadable($HOME . "/.vimrc.local")
 endif
 
 
-let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+let g:rspec_command = "call VtrSendCommand('docker-compose run web rspec {spec}')"
+" let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
