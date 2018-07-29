@@ -166,8 +166,8 @@ if filereadable($HOME . "/.vimrc.local")
 endif
 
 
-let g:rspec_command = "call VtrSendCommand('docker-compose run web rspec {spec}')"
-" let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
+"let g:rspec_command = "call VtrSendCommand('docker-compose run web rspec {spec}')"
+let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
@@ -183,3 +183,5 @@ map <Leader>p :VtrAttachToPane<CR>
 map <Leader>i mzgg=G`z 
 "map C-j <Plug>(easymotion-prefix)
 map <Leader>j <Plug>(easymotion-bd-w)
+nmap <leader>bp orequire 'pry'; binding.pry<esc>^
+nnoremap <Leader>o :CtrlPMRUFiles<CR>
