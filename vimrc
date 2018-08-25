@@ -120,9 +120,6 @@ endfunction
 inoremap <Tab> <C-r>=InsertTabWrapper()<CR>
 inoremap <S-Tab> <C-n>
 
-" Switch between the last two files
-nnoremap <Leader><Leader> <C-^>
-
 " vim-test mappings
 nnoremap <silent> <Leader>t :TestFile<CR>
 nnoremap <silent> <Leader>s :TestNearest<CR>
@@ -185,3 +182,11 @@ map <Leader>i mzgg=G`z
 map <Leader>j <Plug>(easymotion-bd-w)
 nmap <leader>bp orequire 'pry'; binding.pry<esc>^
 nnoremap <Leader>o :CtrlPMRUFiles<CR>
+
+" Bindings for BufStop plugin
+map <leader>b :Bufstop<CR>             " get a visual on the buffers
+map <leader>c :BufstopModeFast<CR>     " a command for quick switching
+map <leader>m :BufstopBack<CR>
+map <leader>n :BufstopForward<CR>
+let g:BufstopAutoSpeedToggle = 1       " now I can press ,3,3,3 to cycle the last 3 buffers
+

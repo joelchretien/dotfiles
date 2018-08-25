@@ -43,6 +43,8 @@ Plug 'thoughtbot/vim-rspec'
 Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tcomment_vim'
 Plug 'christoomey/vim-conflicted'
+Plug 'mihaifm/bufstop'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 if g:has_async
   Plug 'w0rp/ale'
