@@ -1,0 +1,6 @@
+# Delete any branch that is already merged into master (exclude master and
+# current branch)
+
+function gcmb() {
+  git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d
+}
