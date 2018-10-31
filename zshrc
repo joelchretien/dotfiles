@@ -55,7 +55,7 @@ bindkey "${terminfo[kend]}" end-of-line
 
 export ZSH=/home/joel/.oh-my-zsh
 
-ZSH_THEME="avit"
+ZSH_THEME="blinks"
 
 plugins=(
 git

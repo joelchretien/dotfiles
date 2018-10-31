@@ -195,3 +195,6 @@ map <leader>m :BufstopBack<CR>
 map <leader>n :BufstopForward<CR>
 let g:BufstopAutoSpeedToggle = 1       " now I can press ,3,3,3 to cycle the last 3 buffers
 
+colorscheme gruvbox
+set bg=dark
+set termguicolors

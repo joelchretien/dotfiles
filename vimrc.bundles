@@ -15,6 +15,7 @@ let g:has_async = v:version >= 800 || has('nvim')
 call plug#begin('~/.vim/bundle')
 
 " Define bundles via Github repos
+Plug 'morhetz/gruvbox'
 Plug 'christoomey/vim-run-interactive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -44,7 +45,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tomtom/tcomment_vim'
 Plug 'christoomey/vim-conflicted'
 Plug 'mihaifm/bufstop'
-Plug 'dracula/vim', { 'as': 'dracula' }
 
 if g:has_async
   Plug 'w0rp/ale'
