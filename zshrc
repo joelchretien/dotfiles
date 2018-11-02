@@ -63,7 +63,7 @@ git
 
 source $ZSH/oh-my-zsh.sh
 #oh-my-zsh attempts to alias g.  We already have a function that does this.
-unalias g
+unalias g &>/dev/null
 
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
