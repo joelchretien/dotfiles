@@ -44,6 +44,7 @@ nmap <Leader>f :action Forward<CR>
 nmap <Leader>e :action GotoNextError<cr>
 nmap <Leader>E :action GotoNextError<cr>
 nmap <leader>d :action ShowErrorDescription<cr>
+nmap <leader>B :action ToggleLineBreakpoint<cr>
 nnoremap <Leader>j <C-A-Right>
 " h left, l right, k up, j down
 nmap <leader>h <c-w>h
