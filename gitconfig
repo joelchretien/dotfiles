@@ -16,6 +16,7 @@
 [core]
   excludesfile = ~/.gitignore
   autocrlf = input
+	pager = less -XRF
 [merge]
   ff = only
 [commit]
@@ -28,5 +29,4 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
-[diff]
-tool = vimdiff
+  tool = vimdiff
