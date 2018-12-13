@@ -1,0 +1,4 @@
+#Adds all files that match a pattern in git
+gat() {
+  find . -name "$@" -print0 | xargs -0 git add
+}
