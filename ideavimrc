@@ -29,10 +29,10 @@ set scrolloff=3         " 3 lines above/below cursor when scrolling
 "let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
 
 " TODO
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" map <Leader>t :call RunCurrentSpecFile()<CR>
+" map <Leader>s :call RunNearestSpec()<CR>
+" map <Leader>l :call RunLastSpec()<CR>
+" map <Leader>a :call RunAllSpecs()<CR>
 
 " bind K to grep word under cursor
 nnoremap K <A-F7>
