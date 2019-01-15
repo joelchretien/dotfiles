@@ -132,6 +132,8 @@ nnoremap <silent> <Leader>gt :TestVisit<CR>
 " Run commands that require an interactive shell
 nnoremap <Leader>r :RunInInteractiveShell<Space>
 
+nnoremap <Leader>f :e %:h<CR>
+
 " Goto defintion
 nnoremap <Leader>g <C-]>
 " Navigate back
