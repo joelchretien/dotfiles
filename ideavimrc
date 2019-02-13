@@ -47,6 +47,7 @@ nmap <leader>d :action ShowErrorDescription<cr>
 nmap <leader>B :action ToggleLineBreakpoint<cr>
 nmap <leader>s :action SurroundWith<cr>
 nmap <leader>M :action ExtractMethod<cr>
+nmap <leader>t O/** @test<Esc>
 
 nnoremap <Leader>j <C-A-Right>
 " h left, l right, k up, j down
