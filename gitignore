@@ -13,3 +13,4 @@ tmp/**/*
 *.pyc
 ignoreme
 docker-compose.yml
+install-xdebug.sh
