@@ -5,6 +5,8 @@ let mapleader = " "
 set ignorecase
 set smartcase
 set scrolloff=3         " 3 lines above/below cursor when scrolling
+set iskeyword+=$        " Include the dollar sign as part of the word for PHPs variables
+set iskeyword+=-        " Include the dash sign in order to support kebab casing
 
 " Integrate with system clipboard
 " set clipboard=unnamedplus,unnamed
@@ -48,6 +50,8 @@ nmap <leader>B :action ToggleLineBreakpoint<cr>
 nmap <leader>s :action SurroundWith<cr>
 nmap <leader>M :action ExtractMethod<cr>
 nmap <leader>t O/** @test<Esc>
+nmap <leader>I o$this->markTestIncomplete('Test stubbed in');<Esc>
+nmap <c-w> :q<cr>
 
 nnoremap <Leader>j <C-A-Right>
 " h left, l right, k up, j down
