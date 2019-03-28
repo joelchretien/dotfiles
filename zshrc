@@ -48,7 +48,7 @@ _load_settings "$HOME/.zsh/configs"
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 export PATH="$HOME/.composer/vendor/bin:$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 #
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
@@ -68,3 +68,6 @@ unalias g &>/dev/null
 
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
+
+[[ -f ~/knak-scripts/aliases ]] && source ~/knak-scripts/aliases
+
