@@ -14,3 +14,4 @@ tmp/**/*
 ignoreme
 docker-compose.yml
 install-xdebug.sh
+psysh
