@@ -46,7 +46,7 @@ nmap W :action Forward<CR>
 nmap <Leader>e :action GotoNextError<cr>
 nmap <Leader>E :action GotoNextError<cr>
 nmap <leader>d :action ShowErrorDescription<cr>
-nmap <leader>B :action ToggleLineBreakpoint<cr>
+nmap <leader>b :action ToggleLineBreakpoint<cr>
 nmap <leader>s :action SurroundWith<cr>
 nmap <leader>M :action ExtractMethod<cr>
 nmap <leader>t O/** @test<Esc>
@@ -59,7 +59,7 @@ nmap <leader>h <c-w>h
 nmap <leader>l <c-w>l
 nmap <leader>k <c-w>k
 nmap <leader>j <c-w>j
-nmap <leader>b oeval(\Psy\sh());<Esc>
+nmap <leader>B oeval(\Psy\sh());<Esc>
 
 " These create newlines like o and O but stay in normal mode
 nmap zj o<Esc>k
