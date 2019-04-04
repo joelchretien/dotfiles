@@ -12,6 +12,7 @@ tmp/**/*
 !tmp/cache/.keep
 *.pyc
 ignoreme
-docker-compose.yml
+my-docker-compose.yml
 install-xdebug.sh
 psysh
+result.xml
