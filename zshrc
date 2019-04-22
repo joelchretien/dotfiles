@@ -60,6 +60,7 @@ ZSH_THEME="blinks"
 plugins=(
   git
   tmux
+  docker
 )
 
 source $ZSH/oh-my-zsh.sh
