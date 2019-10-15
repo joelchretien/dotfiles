@@ -302,7 +302,7 @@ bindsym $mod+w exec flameshot gui
 bindsym $mod+Shift+m exec xrandr --auto && monitors
 
 #TODO: Try a later version of i3 to get this working, current version is from 2017
-[workspace=$ws1] move workspace to output eDP-1
+# [workspace=$ws1] move workspace to output eDP-1
 
 # Compton
 exec_always --no-startup-id compton
