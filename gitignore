@@ -15,4 +15,5 @@ ignoreme
 my-docker-compose.yml
 install-xdebug.sh
 psysh
-result.xml
+result.xml.*
+db-backup*
