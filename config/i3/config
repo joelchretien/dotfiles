@@ -63,10 +63,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # split in horizontal orientation
-bindsym $mod+Shift+v split h
+bindsym $mod+Ctrl+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Ctrl+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -96,8 +96,8 @@ bindsym $mod+a focus parent
 set $ws1 "1 Browser"
 set $ws2 "2 DevTools"
 set $ws3 "3 NPM"
-set $ws4 "4 Enterprise"
-set $ws5 "5 Builder"
+set $ws4 "4 PHPStorm"
+set $ws5 "5"
 set $ws6 "6 MySQL"
 set $ws7 "7 Zoom"
 set $ws8 "8 KeeWeb"
@@ -129,6 +129,9 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# asdf
+bindsym $mod+Ctrl+1 [instance="google-chrome"] focus
 
 # reload the configuration file
 bindsym $mod+Shift+Ctrl+c reload
@@ -181,7 +184,7 @@ bindsym $mod+Shift+Ctrl+z exec --no-startup-id killall zoom
 new_window pixel 0
 new_float pixel 0
 # class                 border  backgr. text    indicator child_border
-client.focused          #002b36 #586e75 #fdf6e3 #268bd2
+client.focused          #ffff00 #586e75 #fdf6e3 #268bd2
 client.focused_inactive #002b36 #073642 #839496 #073642
 client.unfocused        #002b36 #073642 #839496 #073642
 client.urgent           #002b36 #dc322f #fdf6e3 #002b36
@@ -284,10 +287,13 @@ for_window [instance="zoom" title="^Zoom Meeting ID: "] move container to worksp
 
 bindsym $mod+q [instance="gnome-terminal-server"] move scratchpad; [instance="calendar.google.com"] move scratchpad; [instance="mail.google.com"] move scratchpad; [instance="app.intercom.io"] move scratchpad; [instance="slack"] move scratchpad; [instance="spotify"] move scratchpad; [instance="sublime_text"] move scratchpad;
 
+bindsym $mod+Ctrl+z exec killall zoom && spotify-pause && zoom-meeting; workspace $ws7
+bindsym $mod+Shift+p exec spotify-play-pause
+
 # swap caps lock and escape
 exec_always --no-startup-id xmodmap -e "clear lock"
-exec_always --no-startup-id xmodmap -e "keysym Caps_Lock = Escape"
-exec_always --no-startup-id xmodmap -e "keysym Escape = Caps_Lock"
+exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
+exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 #exec_always --no-startup-id xmodmap -e "add Lock = Caps_Lock" 
 # Touchpad settings
 exec_always --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1 
@@ -305,5 +311,7 @@ bindsym $mod+Shift+m exec xrandr --auto && monitors
 # [workspace=$ws1] move workspace to output eDP-1
 
 # Compton
-exec_always --no-startup-id compton
-exec_always --no-startup-id hsetroot -solid "#000000"
+exec --no-startup-id "compton -b --config ~/.config/compton.conf"
+
+exec_always --no-startup-id xsetroot -solid "#333333"
+exec_always --no-startup-id feh --bg-fill ~/dotfiles/bin/Wallpaper.jpg
