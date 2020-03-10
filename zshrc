@@ -67,6 +67,8 @@ plugins=(
   git
   tmux
   docker
+  laravel5
+  vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -78,3 +80,7 @@ autoload -Uz compinit && compinit -i
 
 [[ -f ~/knak-scripts/aliases ]] && source ~/knak-scripts/aliases
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'

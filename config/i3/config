@@ -38,17 +38,10 @@ bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-
 # rofi app and window launchers
-bindsym $mod+b exec rofi -show drun -theme regolith-theme
-bindsym $mod+Shift+b exec rofi -show run -theme regolith-theme
-bindsym $mod+Ctrl+b exec rofi -show window -theme regolith-theme
+bindsym $mod+d exec rofi -show drun -theme regolith-theme
+bindsym $mod+Shift+d exec rofi -show run -theme regolith-theme
+bindsym $mod+Ctrl+d exec rofi -show window -theme regolith-theme
 
 # change focus
 bindsym $mod+h focus left
@@ -86,7 +79,7 @@ focus_follows_mouse no
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+Shift+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -104,6 +97,7 @@ set $ws8 "8 KeeWeb"
 set $ws9 "9"
 set $ws10 "10"
 set $wsM "Merge"
+set $wsU "Sublime"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -116,6 +110,7 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
+bindsym $mod+u workspace $wsU
 bindsym $mod+m workspace $wsM
 
 # move focused container to workspace
@@ -173,10 +168,29 @@ mode "Resize Mode" {
       # back to normal: Enter or Escape
       bindsym Return mode "default"
       bindsym Escape mode "default"
-      bindsym $mod+r mode "default
+      bindsym $mod+r mode "default"
 
 }
 bindsym $mod+r mode "Resize Mode"
+
+
+# goto window mode
+mode "Goto Mode" {
+      # These bindings trigger as soon as you enter the goto mode
+      bindsym s [instance="mysql-workbench-bin"] focus; mode "default"
+
+      # back to normal: Enter or Escape
+      bindsym Return mode "default"
+      bindsym Escape mode "default"
+      bindsym $mod+g mode "default"
+}
+bindsym $mod+g mode "Goto Mode"
+
+
+bindsym $mod+v [instance="google-chrome" title="^DevTools"] focus
+bindsym $mod+b [title="^builder.*PhpStorm$"] focus
+bindsym $mod+e [title="^enterprise.*PhpStorm$"] focus
+bindsym $mod+c [instance="google-chrome" title=".* - Google Chrome$"] focus
 
 bindsym $mod+Shift+Ctrl+z exec --no-startup-id killall zoom
 
@@ -210,6 +224,7 @@ bindsym $mod+Shift+z move workspace to output up
 #bindsym $mod+z move scratchpad
 #bindsym $mod+o scratchpad show
 bindsym $mod+semicolon floating toggle; resize set 1500 800; move position center
+bindsym $mod+colon move position center
 
 for_window [instance="gnome-terminal-server"] floating enable
 for_window [instance="gnome-terminal-server"] resize set 1500 800
@@ -223,14 +238,21 @@ for_window [instance="calendar.google.com"] resize set 1500 800
 for_window [instance="calendar.google.com"] move scratchpad
 for_window [instance="calendar.google.com"] border pixel 2
 exec_always --no-startup-id goog-cal
-bindsym $mod+c [instance="calendar.google.com"] scratchpad show; [instance="calendar.google.com"] move position center
+bindsym $mod+Shift+c [instance="calendar.google.com"] scratchpad show; [instance="calendar.google.com"] move position center
 
 for_window [instance="mail.google.com"] floating enable
 for_window [instance="mail.google.com"] resize set 1500 800
 for_window [instance="mail.google.com"] move scratchpad
 for_window [instance="mail.google.com"] border pixel 2
 exec_always --no-startup-id goog-mail
-bindsym $mod+e [instance="mail.google.com"] scratchpad show; [instance="mail.google.com"] move position center
+bindsym $mod+Shift+g [instance="mail.google.com"] scratchpad show; [instance="mail.google.com"] move position center
+
+for_window [instance="discordapp.com__channels_652516787010666516_652516787010666519"] floating enable
+for_window [instance="discordapp.com__channels_652516787010666516_652516787010666519"] resize set 1500 800
+for_window [instance="discordapp.com__channels_652516787010666516_652516787010666519"] move scratchpad
+for_window [instance="discordapp.com__channels_652516787010666516_652516787010666519"] border pixel 2
+exec_always --no-startup-id discord-app
+bindsym $mod+o [instance="discordapp.com__channels_652516787010666516_652516787010666519"] scratchpad show; [instance="discordapp.com__channels_652516787010666516_652516787010666519"] move position center
 
 for_window [instance="app.intercom.io"] floating enable
 for_window [instance="app.intercom.io"] resize set 1500 800
@@ -253,19 +275,10 @@ for_window [instance="spotify"] border pixel 2
 exec_always --no-startup-id spotify-app
 bindsym $mod+p [instance="spotify"] scratchpad show; [instance="spotify"] move position center
 
-for_window [instance="sublime_text"] floating enable
-for_window [instance="sublime_text"] resize set 1500 800
-for_window [instance="sublime_text"] move scratchpad
-for_window [instance="sublime_text"] border pixel 2
 exec_always --no-startup-id sublimetext-app
-bindsym $mod+u [instance="sublime_text"] scratchpad show; [instance="sublime_text"] move position center
+for_window [instance="sublime_text"] move container to workspace $wsU
 
-# for_window [instance="sublime_merge"] floating enable
-# for_window [instance="sublime_merge"] resize set 1500 800
-# for_window [instance="sublime_merge"] move scratchpad
-# for_window [instance="sublime_merge"] border pixel 2
 exec_always --no-startup-id sublimemerge-app
-# bindsym $mod+m [instance="sublime_merge"] scratchpad show; [instance="sublime_merge"] move position center
 for_window [instance="sublime_merge"] move container to workspace $wsM
 
 exec_always --no-startup-id alarm-app
@@ -273,21 +286,18 @@ for_window [instance="alarm-clock-applet"] move container to workspace $ws3
 
 #Automatically move windows to workspaces
 for_window [instance="mysql-workbench-bin"] move container to workspace $ws6
+for_window [instance="jetbrains-phpstorm"] move container to workspace $ws4
 for_window [instance="google-chrome" title="^DevTools"] move container to workspace $ws2
 
-for_window [instance="zoom" title="Zoom - Free Account"] floating enable
-for_window [instance="zoom" title="Zoom - Free Account"] resize set 1500 800
-for_window [instance="zoom" title="Zoom - Free Account"] move scratchpad
-for_window [instance="zoom" title="Zoom - Free Account"] border pixel 2
 exec_always --no-startup-id sublimemerge-app
-bindsym $mod+o [instance="zoom" title="Zoom - Free Account"] scratchpad show; [instance="zoom" title="Zoom - Free Account"] move position center
 
 for_window [instance="zoom" title="^Zoom Meeting ID: "] floating disable
 for_window [instance="zoom" title="^Zoom Meeting ID: "] move container to workspace $ws7;
 
-bindsym $mod+q [instance="gnome-terminal-server"] move scratchpad; [instance="calendar.google.com"] move scratchpad; [instance="mail.google.com"] move scratchpad; [instance="app.intercom.io"] move scratchpad; [instance="slack"] move scratchpad; [instance="spotify"] move scratchpad; [instance="sublime_text"] move scratchpad;
+bindsym $mod+q [instance="gnome-terminal-server"] move scratchpad; [instance="calendar.google.com"] move scratchpad; [instance="mail.google.com"] move scratchpad; [instance="app.intercom.io"] move scratchpad; [instance="slack"] move scratchpad; [instance="spotify"] move scratchpad; [instance="discordapp.com__channels_652516787010666516_652516787010666519"] move scratchpad;
 
-bindsym $mod+Ctrl+z exec killall zoom && spotify-pause && zoom-meeting; workspace $ws7
+bindsym $mod+Ctrl+z exec zoom-meeting; workspace $ws7
+bindsym $mod+Shift+b exec bitbucket-pr
 bindsym $mod+Shift+p exec spotify-play-pause
 
 # swap caps lock and escape
@@ -301,6 +311,7 @@ exec_always --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libi
 exec_always --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 1
 exec_always --no-startup-id xinput --set-prop "pointer:Microsoft Microsoft® SideWinder™ X3 Mouse" 288 1
+exec_always dropbox start
 
 # Screen shot
 bindsym $mod+w exec flameshot gui
@@ -311,7 +322,7 @@ bindsym $mod+Shift+m exec xrandr --auto && monitors
 # [workspace=$ws1] move workspace to output eDP-1
 
 # Compton
-exec --no-startup-id "compton -b --config ~/.config/compton.conf"
+exec --no-startup-id compton
 
 exec_always --no-startup-id xsetroot -solid "#333333"
 exec_always --no-startup-id feh --bg-fill ~/dotfiles/bin/Wallpaper.jpg
