@@ -37,7 +37,6 @@ set iskeyword+=-        " Include the dash sign in order to support kebab casing
 " map <Leader>a :call RunAllSpecs()<CR>
 
 " bind K to grep word under cursor
-nnoremap K <A-F7>
 nmap <Leader>r :source ~/.ideavimrc<CR>
 nmap <Leader>i :action ReformatCode<CR>
 nmap <Leader>g :action GotoDeclaration<CR>

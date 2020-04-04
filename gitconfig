@@ -1,7 +1,7 @@
 [init]
   templatedir = ~/.git_template
 [push]
-  default = current
+	default = current
 [color]
   ui = auto
 [alias]

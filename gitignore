@@ -17,3 +17,4 @@ install-xdebug.sh
 psysh
 result.xml.*
 db-backup*
+TinkerScripts

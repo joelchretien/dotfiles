@@ -69,6 +69,7 @@ plugins=(
   docker
   laravel5
   vi-mode
+  fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -84,3 +85,6 @@ autoload -Uz compinit && compinit -i
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+source /usr/share/nvm/init-nvm.sh
