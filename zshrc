@@ -48,6 +48,7 @@ _load_settings "$HOME/.zsh/configs"
 [[ -f ~/.aliases ]] && source ~/.aliases
 
 export PATH="$HOME/.composer/vendor/bin:$HOME/.rbenv/bin:$PATH"
+export XDEBUG_CONFIG="idekey=VSCODE"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -80,7 +81,12 @@ fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
 [[ -f ~/knak-scripts/aliases ]] && source ~/knak-scripts/aliases
+export ENTERPRISE_REPO_PATH=~/projects/enterprise/
+[[ -f ~/projects/enterprise/scripts/aliases ]] && source ~/projects/enterprise/scripts/aliases
 
+
+export OBSIDIAN_REPO_PATH=~/projects/obsidian-mvp/
+[[ -f ~/projects/obsidian-mvp/scripts/aliases ]] && source ~/projects/obsidian-mvp/scripts/aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

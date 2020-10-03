@@ -2,6 +2,8 @@
   templatedir = ~/.git_template
 [push]
 	default = current
+[pull]
+  default = current
 [color]
   ui = auto
 [alias]
@@ -32,3 +34,8 @@
   tool = meld
 [difftool]
   prompt = false
+[user]
+	email = joel@knak.com
+	name = Joel Chretien
+[pull]
+	default = matching
