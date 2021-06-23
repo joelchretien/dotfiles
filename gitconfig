@@ -19,8 +19,6 @@
   excludesfile = ~/.gitignore
   autocrlf = input
   pager = less -XRF
-[merge]
-  ff = only
 [commit]
   template = ~/.gitmessage
 [fetch]
