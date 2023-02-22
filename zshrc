@@ -60,6 +60,9 @@ fi
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
+#Enable vi mode
+bindkey -v
+
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="blinks"
