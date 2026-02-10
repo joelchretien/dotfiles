@@ -1,5 +1,3 @@
-[init]
-  templatedir = ~/.git_template
 [push]
 	default = current
 [pull]
@@ -21,7 +19,7 @@
   autocrlf = input
   pager = less -XRF
 [commit]
-	template = /home/joel/.gitmessage
+	template = ~/.gitmessage
 [fetch]
   prune = true
 [rebase]
@@ -30,11 +28,5 @@
   path = ~/.gitconfig.local
 [diff]
   colorMoved = zebra
-  tool = meld
-[difftool]
-  prompt = false
-[user]
-	email = joel@knak.com
-	name = Joel Chretien
 [pull]
 	default = matching

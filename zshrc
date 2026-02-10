@@ -47,16 +47,10 @@ _load_settings "$HOME/.zsh/configs"
 # aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
-export PATH="$HOME/.composer/vendor/bin:$HOME/.rbenv/bin:$PATH"
-export XDEBUG_CONFIG="idekey=VSCODE"
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
-
-#eval "$(rbenv init -)"
-#
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
@@ -71,7 +65,6 @@ plugins=(
   git
   tmux
   docker
-  laravel5
   vi-mode
   fzf
 )

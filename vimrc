@@ -145,14 +145,6 @@ if filereadable($HOME . "/.vimrc.local")
 endif
 
 
-"let g:rspec_command = "call VtrSendCommand('docker-compose run web rspec {spec}')"
-let g:rspec_command = "call VtrSendCommand('rspec {spec}')"
-
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
-
 " bind K to grep word under cursor
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind Leader k to closing the quick fix, and preview windows
@@ -162,7 +154,6 @@ map <Leader>p :VtrAttachToPane<CR>
 map <Leader>i mzgg=G`z 
 "map C-j <Plug>(easymotion-prefix)
 map <Leader>j <Plug>(easymotion-bd-w)
-nmap <leader>bp orequire 'pry'; binding.pry<esc>^
 nnoremap <Leader>o :CtrlPMRUFiles<CR>
 
 " Bindings for BufStop plugin

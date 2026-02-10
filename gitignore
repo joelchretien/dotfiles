@@ -1,9 +1,7 @@
 .DS_Store
 *.sw[nop]
 .bundle
-.byebug_history
 .env
-db/*.sqlite3
 log/*.log
 rerun.txt
 tags
@@ -13,8 +11,4 @@ tmp/**/*
 *.pyc
 ignoreme
 my-docker-compose.yml
-install-xdebug.sh
-psysh
-result.xml.*
 db-backup*
-TinkerScripts
