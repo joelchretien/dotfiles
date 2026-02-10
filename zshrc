@@ -76,14 +76,6 @@ unalias g &>/dev/null
 fpath=(~/.zsh/completion $fpath)
 autoload -Uz compinit && compinit -i
 
-[[ -f ~/knak-scripts/aliases ]] && source ~/knak-scripts/aliases
-export ENTERPRISE_REPO_PATH=~/projects/enterprise/
-[[ -f ~/projects/enterprise/scripts/aliases ]] && source ~/projects/enterprise/scripts/aliases
-
-
-export OBSIDIAN_REPO_PATH=~/projects/obsidian-mvp/
-[[ -f ~/projects/obsidian-mvp/scripts/aliases ]] && source ~/projects/obsidian-mvp/scripts/aliases
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
