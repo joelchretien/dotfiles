@@ -12,3 +12,4 @@ tmp/**/*
 ignoreme
 my-docker-compose.yml
 db-backup*
+.claude/
