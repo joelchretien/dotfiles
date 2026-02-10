@@ -20,10 +20,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
 endif
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
 " Load matchit.vim, but only if the user hasn't installed a newer version.
 if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
   runtime! macros/matchit.vim
@@ -43,22 +39,6 @@ augroup vimrcEx
     \ endif
 
   " Set syntax highlighting for specific file types
-augroup END
-
-" ALE linting events
-augroup ale
-  autocmd!
-
-  if g:has_async
-    set updatetime=1000
-    let g:ale_lint_on_text_changed = 0
-    autocmd CursorHold * call ale#Queue(0)
-    autocmd CursorHoldI * call ale#Queue(0)
-    autocmd InsertEnter * call ale#Queue(0)
-    autocmd InsertLeave * call ale#Queue(0)
-  else
-    echoerr "The thoughtbot dotfiles require NeoVim or Vim 8"
-  endif
 augroup END
 
 " When the type of shell script is /bin/sh, assume a POSIX-compatible
@@ -82,12 +62,6 @@ if executable('ag')
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
   if !exists(":Ag")
     command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
   endif
@@ -101,9 +75,6 @@ set numberwidth=5
 " will insert tab at beginning of line,
 " will use completion if not at beginning
 inoremap <S-Tab> <C-n>
-
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<Space>
 
 nnoremap <Leader>f :e %:h<CR>
 
@@ -125,10 +96,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-" Move between linting errors
-nnoremap ]r :ALENextWrap<CR>
-nnoremap [r :ALEPreviousWrap<CR>
-
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
@@ -149,17 +116,4 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " bind Leader k to closing the quick fix, and preview windows
 map <Leader>k :ccl<CR>:pc<CR>
-" bind Leader p to Attach the Vtr pane
-map <Leader>p :VtrAttachToPane<CR>
 map <Leader>i mzgg=G`z 
-"map C-j <Plug>(easymotion-prefix)
-map <Leader>j <Plug>(easymotion-bd-w)
-nnoremap <Leader>o :CtrlPMRUFiles<CR>
-
-" Bindings for BufStop plugin
-map <leader>b :Bufstop<CR>             " get a visual on the buffers
-map <leader>c :BufstopModeFast<CR>     " a command for quick switching
-map <leader>m :BufstopBack<CR>
-map <leader>n :BufstopForward<CR>
-let g:BufstopAutoSpeedToggle = 1       " now I can press ,3,3,3 to cycle the last 3 buffers
-
